@@ -4,7 +4,7 @@ import { Container, Form, FormControl, InputGroup, Nav, Navbar, NavDropdown } fr
 
 const Header = () => {
     return (
-        <Navbar style={{ backgroundColor: "var(--bgMain)" }} expand="lg" variant="dark">
+        <Navbar style={{ backgroundColor: "var(--bgMain)" }} expand="lg" variant="dark" className="py-3">
             <Container fluid>
                 <Navbar.Brand href="#" style={{ display: 'block', backgroundColor: "var(--bgSecondary)", padding: "5px 10px" }}>Ryans Clone</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
