@@ -11,7 +11,6 @@ const Home = () => {
             <Header></Header>
             <Slider></Slider>
             <ProductsCollection></ProductsCollection>
-            <AddProduct></AddProduct>
             <Footer></Footer>
         </div>
     );

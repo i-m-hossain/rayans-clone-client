@@ -1,6 +1,7 @@
 import Button from '@restart/ui/esm/Button';
 import React from 'react';
 import { Container, Form, FormControl, InputGroup, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import { Logo } from '../../../StyledComponents/Logo';
 
 const Header = () => {
@@ -34,6 +35,7 @@ const Header = () => {
                             <NavDropdown.Item href="#action/3.2">Laptos</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.3">Monitor</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.3">Tablets</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/addProduct">Add Product</NavDropdown.Item>
 
                         </NavDropdown>
                         <Nav.Link href="#action1" className="text-white">Cart</Nav.Link>

@@ -16,10 +16,10 @@ const Footer = () => {
                         <div style={{ color: "white" }}>
                             <Logo ><Navbar.Brand href="#" className="text-dark">Ryans Clone</Navbar.Brand></Logo>
                             <div className="d-flex justify-content-center mt-4 ">
-                                <h1><FaFacebookF className="border me-2 p-2 bg-primary text-light" /></h1>
-                                <h1><GrTwitter className="border me-2 p-2 bg-info text-light" /></h1>
-                                <h1><AiOutlineGoogle className="border me-2 p-2 bg-danger text-light" /></h1>
-                                <h1><BsInstagram className="border me-2 p-2 bg-light text-dark" /></h1>
+                                <h1><FaFacebookF className="rounded me-2 p-2 bg-primary text-light" /></h1>
+                                <h1><GrTwitter className="rounded me-2 p-2 bg-info text-light" /></h1>
+                                <h1><AiOutlineGoogle className="rounded me-2 p-2 bg-danger text-light" /></h1>
+                                <h1><BsInstagram className="rounded me-2 p-2 bg-light text-dark" /></h1>
                             </div>
                         </div>
 
