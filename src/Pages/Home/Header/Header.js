@@ -1,12 +1,15 @@
 import Button from '@restart/ui/esm/Button';
 import React from 'react';
 import { Container, Form, FormControl, InputGroup, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { Logo } from '../../../StyledComponents/Logo';
 
 const Header = () => {
     return (
         <Navbar style={{ backgroundColor: "var(--bgMain)" }} expand="lg" variant="dark" className="py-3">
             <Container fluid>
-                <Navbar.Brand href="#" style={{ display: 'block', backgroundColor: "var(--bgSecondary)", padding: "5px 10px" }}>Ryans Clone</Navbar.Brand>
+                <Logo>
+                    <Navbar.Brand href="#" className="text-dark">Ryans Clone </Navbar.Brand>
+                </Logo>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Container >
                     <Form className="d-flex w-75 mx-auto p-2">
