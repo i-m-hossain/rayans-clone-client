@@ -7,7 +7,7 @@ const Header = () => {
     return (
         <Navbar style={{ backgroundColor: "var(--bgMain)" }} expand="lg" variant="dark" className="py-3">
             <Container fluid>
-                <Logo>
+                <Logo >
                     <Navbar.Brand href="#" className="text-dark">Ryans Clone </Navbar.Brand>
                 </Logo>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
