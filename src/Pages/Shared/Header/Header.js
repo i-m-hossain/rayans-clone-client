@@ -9,7 +9,7 @@ const Header = () => {
         <Navbar style={{ backgroundColor: "var(--bgMain)" }} expand="lg" variant="dark" className="py-3">
             <Container fluid>
                 <Logo >
-                    <Navbar.Brand href="#" className="text-dark">Ryans Clone </Navbar.Brand>
+                    <Navbar.Brand as={Link} to="/" className="text-dark">Ryans Clone </Navbar.Brand>
                 </Logo>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Container >
@@ -39,7 +39,8 @@ const Header = () => {
 
                         </NavDropdown>
                         <Nav.Link href="#action1" className="text-white">Cart</Nav.Link>
-                        <Nav.Link href="#action2" className="text-white">Account</Nav.Link>
+                        <Nav.Link as={Link} to="/Login" className="text-white">Login</Nav.Link>
+                        <Nav.Link as={Link} to="/" className="text-white">Account</Nav.Link>
                     </Nav>
 
                 </Navbar.Collapse>
