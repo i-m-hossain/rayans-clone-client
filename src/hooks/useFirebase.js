@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import initFirebase from "../Pages/Firebase/firebase.init";
 import { useNavigate } from "react-router";
 initFirebase()
@@ -48,9 +48,18 @@ const useFirebase = () => {
         setIsLoading(true)
         createUserWithEmailAndPassword(auth, email, password)
             .then(result => {
+                updateUsersProfile(name)
                 navigate(location?.state?.from || '/')
                 setIsLoading(false)
+                console.log(result.user)
             })
+            .catch(error => console.log(error.message))
+    }
+    const updateUsersProfile = (name) => {
+        updateProfile(auth.currentUser, {
+            displayName: name
+        })
+            .then(() => console.log('user profile updated'))
             .catch(error => console.log(error.message))
     }
 
