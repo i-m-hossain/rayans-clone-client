@@ -2,9 +2,11 @@ import Button from '@restart/ui/esm/Button';
 import React from 'react';
 import { Container, Form, FormControl, InputGroup, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { Logo } from '../../../StyledComponents/Logo';
+import useAuth from '../../../hooks/useAuth';
+import { Logo, } from '../../../StyledComponents/Logo';
 
 const Header = () => {
+    const { user } = useAuth()
     return (
         <Navbar style={{ backgroundColor: "var(--bgMain)" }} expand="lg" variant="dark" className="py-3">
             <Container fluid>
@@ -41,6 +43,7 @@ const Header = () => {
                         <Nav.Link href="#action1" className="text-white">Cart</Nav.Link>
                         <Nav.Link as={Link} to="/Login" className="text-white">Login</Nav.Link>
                         <Nav.Link as={Link} to="/" className="text-white">Account</Nav.Link>
+                        <Nav.Link as={Link} to="/" className="text-white">{user.displayName}</Nav.Link>
                     </Nav>
 
                 </Navbar.Collapse>

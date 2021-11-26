@@ -9,7 +9,7 @@ export default function Register() {
             <form onSubmit={handleSubmit(onSubmit)}>
                 <input
                     {...register("email", { required: true })}
-
+                    type="email"
                     placeholder="Your Email"
                     className="w-50 mb-3 p-2" />
                 <br />
