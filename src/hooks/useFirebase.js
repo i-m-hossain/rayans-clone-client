@@ -11,29 +11,33 @@ const useFirebase = () => {
     * Google Login
     */
     const loginWithGoogle = () => {
+        setIsLoading(true)
         const provider = new GoogleAuthProvider();
         signInWithPopup(auth, provider)
             .then((result) => {
                 console.log('login success')
-                setIsLoading(false)
+
             }).catch((error) => {
                 console.log(error.message)
-                setIsLoading(true)
-            });
+
+            })
+            .finally(() => setIsLoading(false));
     }
     /* *
-    * detecting users
+    * observe user
     */
     useEffect(() => {
-        onAuthStateChanged(auth, (user) => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
                 setUser(user)
+
             } else {
                 // User is signed out
                 setUser({})
             }
+            setIsLoading(false)
         });
-        setIsLoading(false)
+        return () => unsubscribe;
     }, [auth])
     console.log(user)
     /* * 
@@ -44,11 +48,11 @@ const useFirebase = () => {
             .then(() => {
                 // Sign-out successful
                 setUser({})
-                setIsLoading(false)
+
             }).catch((error) => {
                 // An error happened.
-                setIsLoading(true)
-            });
+            })
+            .finally(() => setIsLoading(false));
     }
     return {
         loginWithGoogle,
