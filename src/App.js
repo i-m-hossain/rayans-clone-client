@@ -9,6 +9,7 @@ import AddProduct from './Pages/AddProduct/AddProduct';
 import SingleProduct from './Pages/SingleProduct/SingleProduct/SingleProduct';
 import Login from './Pages/Login/Login';
 import AuthProvider from './Context/AuthProvider';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
 
 
 
@@ -19,7 +20,14 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/addProduct" element={<AddProduct />} />
+            <Route
+              path="/addProduct"
+              element={
+                <PrivateRoute>
+                  <AddProduct />
+                </PrivateRoute>
+              }
+            />
             <Route path="/products/:productId" element={<SingleProduct />} />
             <Route path="/login" element={<Login />} />
           </Routes>
