@@ -8,8 +8,8 @@ const PrivateRoute = ({ children }) => {
     const location = useLocation()
     if (isLoading) {
         return (
-            <div className="spinner-border" role="status">
-                <span className="sr-only">Loading...</span>
+            <div className="spinner-border mt-5" role="status">
+
             </div>
         )
     }

@@ -37,13 +37,20 @@ const Header = () => {
                             <NavDropdown.Item href="#action/3.2">Laptos</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.3">Monitor</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.3">Tablets</NavDropdown.Item>
-                            <NavDropdown.Item as={Link} to="/addProduct">Add Product</NavDropdown.Item>
 
                         </NavDropdown>
+                        {
+                            !user.email && <Nav.Link as={Link} to="/Login" className="text-white">Login</Nav.Link>
+                        }
+                        {
+                            user.email && <NavDropdown title="Account" id="collasible-nav-dropdown">
+                                <NavDropdown.Item as={Link} to="/addProduct">Add Product</NavDropdown.Item>
+
+                            </NavDropdown>
+                        }
                         <Nav.Link href="#action1" className="text-white">Cart</Nav.Link>
-                        <Nav.Link as={Link} to="/Login" className="text-white">Login</Nav.Link>
-                        <Nav.Link as={Link} to="/" className="text-white">Account</Nav.Link>
-                        <Nav.Link as={Link} to="/" className="text-white">{user.displayName}</Nav.Link>
+
+
                     </Nav>
 
                 </Navbar.Collapse>
