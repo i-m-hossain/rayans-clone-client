@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
-import useFirebase from "../../../hooks/useFirebase";
-
+import { useLocation, useNavigate } from "react-router";
+import useAuth from "../../../hooks/useAuth";
 
 export default function LoginForm() {
     const { register, handleSubmit } = useForm();
-    const { loginWithGoogle } = useFirebase()
-    const onSubmit = data => console.log(data);
+    const { loginWithGoogle, loginWithEmail, isLoading } = useAuth()
+    const location = useLocation()
+    const navigate = useNavigate()
+    const onSubmit = data => {
+        loginWithEmail(data.email, data.password, location, navigate)
+    };
 
     return (
         <>
@@ -19,6 +23,7 @@ export default function LoginForm() {
                 <br />
                 <input
                     {...register("password", { required: true })}
+                    type="password"
                     className="w-50 mb-3 p-2"
                     placeholder="Your Password"
                 />
@@ -26,7 +31,7 @@ export default function LoginForm() {
                 <p>Forgot Password?</p>
                 <input
                     type="submit"
-                    value="Login"
+                    value={isLoading ? 'Loading..' : 'Login'}
                     className="bg-success text-light px-5 py-3 border-0 rounded"
                 />
             </form>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
-import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import initFirebase from "../Pages/Firebase/firebase.init";
+import { useNavigate } from "react-router";
 initFirebase()
 const useFirebase = () => {
     const [user, setUser] = useState({})
@@ -39,9 +40,34 @@ const useFirebase = () => {
         });
         return () => unsubscribe;
     }, [auth])
-    console.log(user)
+
+    /* *
+    * Register user with email and password
+    */
+    const registerWithEmail = (email, password, name, location, navigate) => {
+        setIsLoading(true)
+        createUserWithEmailAndPassword(auth, email, password)
+            .then(result => {
+                navigate(location?.state?.from || '/')
+                setIsLoading(false)
+            })
+            .catch(error => console.log(error.message))
+    }
+
+    /* *
+    * Sign in with email and password
+    */
+    const loginWithEmail = (email, password, location, navigate) => {
+        setIsLoading(true)
+        signInWithEmailAndPassword(auth, email, password)
+            .then(result => {
+                navigate(location?.state?.from || '/')
+                setIsLoading(false)
+            })
+            .catch(error => console.log(error.message));
+    }
     /* * 
-     * Google Logout
+     * Logout
      **/
     const logOut = () => {
         signOut(auth)
@@ -55,6 +81,8 @@ const useFirebase = () => {
             .finally(() => setIsLoading(false));
     }
     return {
+        registerWithEmail,
+        loginWithEmail,
         loginWithGoogle,
         logOut,
         user,

@@ -1,8 +1,15 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { useLocation, useNavigate } from "react-router";
+import useAuth from "../../../hooks/useAuth";
 export default function Register() {
+    const { registerWithEmail, isLoading } = useAuth()
     const { register, handleSubmit } = useForm();
-    const onSubmit = data => console.log(data);
+    const navigate = useNavigate()
+    const location = useLocation()
+    const onSubmit = data => {
+        registerWithEmail(data.email, data.password, data.name, location, navigate)
+    };
 
     return (
         < >
@@ -15,12 +22,13 @@ export default function Register() {
                 <br />
                 <input
                     {...register("name", { required: true })}
-
+                    type="text"
                     placeholder="Your Name"
                     className="w-50 mb-3 p-2" />
                 <br />
                 <input
                     {...register("password", { required: true })}
+                    type="password"
                     className="w-50 mb-3 p-2"
                     placeholder="Your Password"
                 />
@@ -28,7 +36,7 @@ export default function Register() {
 
                 <input
                     type="submit"
-                    value="Register"
+                    value={isLoading ? 'Loading..' : 'Register'}
                     className="bg-success text-light px-5 py-2 border-0 rounded"
                 />
             </form>

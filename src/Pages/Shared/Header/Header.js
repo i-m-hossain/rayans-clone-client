@@ -6,7 +6,7 @@ import useAuth from '../../../hooks/useAuth';
 import { Logo, } from '../../../StyledComponents/Logo';
 
 const Header = () => {
-    const { user } = useAuth()
+    const { user, logOut } = useAuth()
     return (
         <Navbar style={{ backgroundColor: "var(--bgMain)" }} expand="lg" variant="dark" className="py-3">
             <Container fluid>
@@ -45,6 +45,7 @@ const Header = () => {
                         {
                             user.email && <NavDropdown title="Account" id="collasible-nav-dropdown">
                                 <NavDropdown.Item as={Link} to="/addProduct">Add Product</NavDropdown.Item>
+                                <NavDropdown.Item onClick={logOut} >Logout</NavDropdown.Item>
 
                             </NavDropdown>
                         }
