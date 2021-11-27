@@ -5,23 +5,28 @@ import DashboardTable from '../Shared/DashboardTable';
 
 const ManageProducts = () => {
     const [isProductAdded, setIsProductAdded] = useState(false)
-    const [openForm, setOpenForm] = React.useState(false)
-    const handleOpenForm = () => {
-        setOpenForm(!openForm)
-    }
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => {
+        setShow(true)
+
+    };
+    console.log(show)
     return (
         <Container>
             <Row>
-                <Col xs={12} md={8}>
-                    <DashboardTable isProductAdded={isProductAdded} handleOpenForm={handleOpenForm}></DashboardTable>
+                <Col xs={12} md={12}>
+                    <DashboardTable isProductAdded={isProductAdded} handleShow={handleShow}></DashboardTable>
                 </Col>
-                {
-                    openForm && <Col xs={12} md={4}>
-                        <AddProduct setIsProductAdded={setIsProductAdded} ></AddProduct>
-                    </Col>
-                }
+                <AddProduct
+                    setIsProductAdded={setIsProductAdded}
+                    handleClose={handleClose}
+                    show={show} >
+
+                </AddProduct>
+
             </Row>
-        </Container>
+        </Container >
     );
 };
 

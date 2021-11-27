@@ -31,7 +31,6 @@ function App() {
               }
             >
               <Route path="welcome" element={<DashboardWelcome />} />
-              <Route path="addProduct" element={<AddProduct />} />
               <Route path="manageProducts" element={<ManageProducts />} />
               <Route path="makeAdmin" element={<MakeAdmin />} />
 

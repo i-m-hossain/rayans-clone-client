@@ -2,15 +2,15 @@ import * as React from 'react';
 import { Card, Table, Button } from 'react-bootstrap';
 import useProducts from '../../../hooks/useProducts';
 
-export default function DashboardTable({ isProductAdded, handleOpenForm }) {
+export default function DashboardTable({ isProductAdded, handleShow }) {
     const [products] = useProducts(isProductAdded)
-   
+
     return (
         <div >
             <Card>
                 <Card.Header>
                     <Card.Title className="float-end">
-                        <Button className="btn btn-success" onClick={()=>handleOpenForm(true)}>Add product</Button>
+                        <Button className="btn btn-success" onClick={handleShow}>Add product</Button>
                     </Card.Title>
                 </Card.Header>
                 <Card.Body>

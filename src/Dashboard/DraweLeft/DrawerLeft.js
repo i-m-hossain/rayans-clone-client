@@ -26,14 +26,6 @@ const DrawerLeft = () => {
                 </Link>
                 {
                     user.email && role === 'admin' && <>
-                        <Link to="/dashboard/addProduct">
-                            <ListItem button >
-                                <ListItemIcon>
-                                    <InboxIcon />
-                                </ListItemIcon>
-                                <ListItemText primary="Add Product" />
-                            </ListItem>
-                        </Link>
                         <Link to="/dashboard/manageProducts">
                             <ListItem button >
                                 <ListItemIcon>
