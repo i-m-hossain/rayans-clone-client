@@ -5,7 +5,7 @@ import {
   Route
 } from "react-router-dom";
 import Home from './Pages/Home/Home/Home';
-import AddProduct from './Pages/AddProduct/AddProduct';
+import AddProduct from './Dashboard/pages/AddProduct/AddProduct';
 import SingleProduct from './Pages/SingleProduct/SingleProduct/SingleProduct';
 import Login from './Pages/Login/Login';
 import AuthProvider from './Context/AuthProvider';
