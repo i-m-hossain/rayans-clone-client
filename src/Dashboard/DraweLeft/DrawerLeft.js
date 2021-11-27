@@ -7,28 +7,53 @@ import { Link } from 'react-router-dom'
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 import Toolbar from '@mui/material/Toolbar'
+import useAuth from '../../hooks/useAuth';
 const DrawerLeft = () => {
+    const { user, role } = useAuth()
+    console.log(role)
     return (
-        <div>
+        <div >
             <Toolbar />
             <Divider />
             <List>
-                <Link to="/dashboard/addProduct">
+                <Link to="/">
                     <ListItem button >
                         <ListItemIcon>
                             <InboxIcon />
                         </ListItemIcon>
-                        <ListItemText primary="Add Product" />
+                        <ListItemText primary="Home" />
                     </ListItem>
                 </Link>
-                <Link to="/dashboard/manageProducts">
-                    <ListItem button >
-                        <ListItemIcon>
-                            <InboxIcon />
-                        </ListItemIcon>
-                        <ListItemText primary="Manage Products" />
-                    </ListItem>
-                </Link>
+                {
+                    user.email && role === 'admin' && <>
+                        <Link to="/dashboard/addProduct">
+                            <ListItem button >
+                                <ListItemIcon>
+                                    <InboxIcon />
+                                </ListItemIcon>
+                                <ListItemText primary="Add Product" />
+                            </ListItem>
+                        </Link>
+                        <Link to="/dashboard/manageProducts">
+                            <ListItem button >
+                                <ListItemIcon>
+                                    <InboxIcon />
+                                </ListItemIcon>
+                                <ListItemText primary="Manage Products" />
+                            </ListItem>
+                        </Link>
+                        <Link to="/dashboard/makeAdmin">
+                            <ListItem button >
+                                <ListItemIcon>
+                                    <InboxIcon />
+                                </ListItemIcon>
+                                <ListItemText primary="Make Admin" />
+                            </ListItem>
+                        </Link>
+                    </>
+
+                }
+
 
             </List>
             <Divider />

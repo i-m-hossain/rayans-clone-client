@@ -12,6 +12,8 @@ import AuthProvider from './Context/AuthProvider';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 import DashboardContainer from './Dashboard/DashboardContainer/DashboardContainer';
 import ManageProducts from './Dashboard/pages/ManageProducts/ManageProducts';
+import DashboardWelcome from './Dashboard/DashboardWelcome/DashboardWelcome';
+import MakeAdmin from './Dashboard/pages/MakeAdmin/MakeAdmin';
 
 function App() {
   return (
@@ -28,8 +30,10 @@ function App() {
                 </PrivateRoute>
               }
             >
+              <Route path="welcome" element={<DashboardWelcome />} />
               <Route path="addProduct" element={<AddProduct />} />
               <Route path="manageProducts" element={<ManageProducts />} />
+              <Route path="makeAdmin" element={<MakeAdmin />} />
 
             </Route>
             <Route
@@ -41,7 +45,7 @@ function App() {
               path="*"
               element={
 
-                <p>There's nothing here!</p>
+                <p>Page not found!</p>
               }
             />
           </Routes>

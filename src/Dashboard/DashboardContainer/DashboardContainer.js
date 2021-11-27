@@ -9,6 +9,7 @@ import AppBarTop from '../AppBarTop/AppBarTop';
 import { Typography } from '@mui/material';
 import DrawerContainer from '../DrawerContainer/DrawerContainer';
 import Dashboard from '../Dashboard';
+import DashboardWelcome from '../DashboardWelcome/DashboardWelcome';
 
 export const drawerWidth = 200;
 
@@ -39,7 +40,6 @@ function DashboardContainer(props) {
             >
                 <Toolbar />
                 <Dashboard></Dashboard>
-
             </Box>
         </Box>
     );

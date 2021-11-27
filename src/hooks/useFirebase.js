@@ -1,21 +1,24 @@
 import { useEffect, useState } from "react"
 import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import initFirebase from "../Pages/Firebase/firebase.init";
+import axios from "axios";
 initFirebase()
 const useFirebase = () => {
     const [user, setUser] = useState({})
     const [isLoading, setIsLoading] = useState(true)
+    const [role, setRole] = useState('user')
     const auth = getAuth();
 
     /* *  
     * Google Login
     */
-    const loginWithGoogle = () => {
+    const loginWithGoogle = (location, navigate) => {
         setIsLoading(true)
         const provider = new GoogleAuthProvider();
         signInWithPopup(auth, provider)
             .then((result) => {
-                console.log('login success')
+                navigate(location?.state?.from || '/')
+                saveUser(result.user)
 
             }).catch((error) => {
                 console.log(error.message)
@@ -39,6 +42,13 @@ const useFirebase = () => {
         });
         return () => unsubscribe;
     }, [auth])
+    /* *
+    * observe user role
+    */
+    useEffect(() => {
+        axios.get(`http://localhost:5000/users/role?email=${user.email}`)
+            .then(res => setRole(res.data.role))
+    }, [user])
 
     /* *
     * Register user with email and password
@@ -50,16 +60,27 @@ const useFirebase = () => {
                 updateUsersProfile(name)
                 navigate(location?.state?.from || '/')
                 setIsLoading(false)
-                console.log(result.user)
+                saveUser(result.user, name)
             })
             .catch(error => console.log(error.message))
     }
+
     const updateUsersProfile = (name) => {
         updateProfile(auth.currentUser, {
             displayName: name
         })
             .then(() => console.log('user profile updated'))
             .catch(error => console.log(error.message))
+    }
+    // save user to the database while register and google login
+    const saveUser = (user, name) => {
+        const newUser = {
+            displayName: user.displayName || name,
+            email: user.email,
+            role: 'user'
+        }
+        axios.post('http://localhost:5000/users', newUser)
+            .then(res => console.log(res.data))
     }
 
     /* *
@@ -95,6 +116,7 @@ const useFirebase = () => {
         logOut,
         user,
         isLoading,
+        role
 
     }
 

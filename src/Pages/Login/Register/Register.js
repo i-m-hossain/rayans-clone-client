@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { useLocation, useNavigate } from "react-router";
 import useAuth from "../../../hooks/useAuth";
 export default function Register() {
-    const { registerWithEmail, isLoading } = useAuth()
+    const { loginWithGoogle, registerWithEmail, isLoading } = useAuth()
     const { register, handleSubmit } = useForm();
     const navigate = useNavigate()
     const location = useLocation()
@@ -43,6 +43,7 @@ export default function Register() {
             <div className="d-flex justify-content-center mt-3">
                 <div
                     className="bg-warning p-2 rounded me-3"
+                    onClick={() => loginWithGoogle(location, navigate)}
                 >
                     Sign in with google
                 </div>

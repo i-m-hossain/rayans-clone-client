@@ -39,7 +39,7 @@ export default function LoginForm() {
                 <div
                     className="bg-warning p-2 rounded mx-2 my-2 "
                     style={{ cursor: 'pointer' }}
-                    onClick={loginWithGoogle}
+                    onClick={() => loginWithGoogle(location, navigate)}
                 >
                     Sign in with google
                 </div>

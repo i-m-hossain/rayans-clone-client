@@ -9,7 +9,6 @@ const PrivateRoute = ({ children }) => {
     if (isLoading) {
         return (
             <div className="spinner-border mt-5" role="status">
-
             </div>
         )
     }
