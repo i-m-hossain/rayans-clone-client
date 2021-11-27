@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { Card, Table, Button } from 'react-bootstrap';
 import useProducts from '../../../hooks/useProducts';
+import { BiEdit } from 'react-icons/bi'
+import { AiOutlineDelete } from 'react-icons/ai'
 
 export default function DashboardTable({ isProductAdded, handleShow }) {
     const [products] = useProducts(isProductAdded)
@@ -31,8 +33,9 @@ export default function DashboardTable({ isProductAdded, handleShow }) {
                                     <td>{product.title}</td>
                                     <td><img src={product.image ? `data:image/jpeg;base64,${product.image}` : ''} width="60" alt="" /></td>
                                     <td>{product.price}</td>
-                                    <td>Edit</td>
-                                    <td>Delete</td>
+                                    <td><BiEdit className="h1 bg-warning p-2 rounded" title="Edit" /></td>
+                                    <td><AiOutlineDelete className="h1 bg-danger p-2 rounded text-light" title="Delete" /></td>
+
                                 </tr>)
                             }
                         </tbody>
