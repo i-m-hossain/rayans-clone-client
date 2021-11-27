@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import initFirebase from "../Pages/Firebase/firebase.init";
-import { useNavigate } from "react-router";
 initFirebase()
 const useFirebase = () => {
     const [user, setUser] = useState({})

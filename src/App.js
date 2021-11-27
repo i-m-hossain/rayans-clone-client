@@ -10,8 +10,8 @@ import SingleProduct from './Pages/SingleProduct/SingleProduct/SingleProduct';
 import Login from './Pages/Login/Login';
 import AuthProvider from './Context/AuthProvider';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
-
-
+import DashboardContainer from './Dashboard/DashboardContainer/DashboardContainer';
+import ManageProducts from './Dashboard/pages/ManageProducts/ManageProducts';
 
 function App() {
   return (
@@ -21,20 +21,34 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route
-              path="/addProduct"
+              path="/dashboard"
               element={
                 <PrivateRoute>
-                  <AddProduct />
+                  <DashboardContainer />
                 </PrivateRoute>
               }
+            >
+              <Route path="addProduct" element={<AddProduct />} />
+              <Route path="manageProducts" element={<ManageProducts />} />
+
+            </Route>
+            <Route
+              path="/products/:productId"
+              element={<SingleProduct />}
             />
-            <Route path="/products/:productId" element={<SingleProduct />} />
             <Route path="/login" element={<Login />} />
+            <Route
+              path="*"
+              element={
+
+                <p>There's nothing here!</p>
+              }
+            />
           </Routes>
         </BrowserRouter>
       </AuthProvider>
 
-    </div>
+    </div >
   );
 }
 

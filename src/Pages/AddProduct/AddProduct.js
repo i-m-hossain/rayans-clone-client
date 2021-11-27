@@ -37,8 +37,7 @@ export default function AddProduct() {
                 </div>
 
                 <div >
-
-                    <input type="file" {...register("image")} class="form-control" id="inputGroupFile02" className="mb-2 p-2 w-25" />
+                    <input type="file" {...register("image")} className="form-control mb-2 p-2 w-25 mx-auto" id="inputGroupFile02" />
                 </div>
                 <input type="submit" value="Add product" className="bg-warning border-0 px-3 py-2" />
             </form>

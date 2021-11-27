@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Col, Container, Row, Spinner } from 'react-bootstrap';
+import React from 'react';
+import { Container, Row, Spinner } from 'react-bootstrap';
 import useProducts from '../../../hooks/useProducts';
 import Product from './Product/Product';
 
@@ -23,7 +23,7 @@ const ProductsCollection = () => {
                         <Spinner animation="border" role="status" variant="danger">
                             <span className="visually-hidden">Loading...</span>
                         </Spinner>
-                        
+
                 }
 
             </Container>

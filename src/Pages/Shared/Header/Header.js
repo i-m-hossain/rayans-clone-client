@@ -46,6 +46,7 @@ const Header = () => {
                             user.email && <NavDropdown title="Account" id="collasible-nav-dropdown">
                                 <NavDropdown.Item as={Link} to="/addProduct">Add Product</NavDropdown.Item>
                                 <NavDropdown.Item onClick={logOut} >Logout</NavDropdown.Item>
+                                <NavDropdown.Item as={Link} to="/dashboard">Dashboard</NavDropdown.Item>
 
                             </NavDropdown>
                         }
