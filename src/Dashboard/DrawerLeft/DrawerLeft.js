@@ -9,7 +9,7 @@ import Divider from '@mui/material/Divider';
 import Toolbar from '@mui/material/Toolbar'
 import useAuth from '../../hooks/useAuth';
 const DrawerLeft = () => {
-    const { user, role } = useAuth()
+    const { user, role, logOut } = useAuth()
     console.log(role)
     return (
         <div >
@@ -45,6 +45,13 @@ const DrawerLeft = () => {
                     </>
 
                 }
+
+                <ListItem button onClick={logOut}>
+                    <ListItemIcon>
+                        <InboxIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Logout" />
+                </ListItem>
 
 
             </List>
