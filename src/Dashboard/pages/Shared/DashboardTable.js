@@ -4,6 +4,7 @@ import useProducts from '../../../hooks/useProducts';
 import { BiEdit } from 'react-icons/bi'
 import { AiOutlineDelete } from 'react-icons/ai'
 import axios from "axios"
+import { Link } from 'react-router-dom';
 
 export default function DashboardTable({ isProductAdded, handleShow }) {
     const [products, setProducts] = useProducts(isProductAdded)
@@ -52,11 +53,15 @@ export default function DashboardTable({ isProductAdded, handleShow }) {
                                     </td>
                                     <td>${product.price}</td>
                                     <td>
-                                        <BiEdit
-                                            className="h1 text-primary p-2 rounded"
-                                            title="Edit"
-                                            style={{ cursor: "pointer" }}
-                                        /></td>
+                                        <Link to={`/dashboard/editProduct/${product._id}`}>
+                                            <BiEdit
+                                                className="h1 text-primary p-2 rounded"
+                                                title="Edit"
+                                                style={{ cursor: "pointer" }}
+                                            />
+                                        </Link>
+                                    </td>
+
                                     <td>
                                         <AiOutlineDelete
                                             className="h1  p-2 rounded text-danger " style={{ cursor: "pointer" }} title="Delete"
@@ -71,6 +76,6 @@ export default function DashboardTable({ isProductAdded, handleShow }) {
                 </Card.Body>
             </Card>
 
-        </div>
+        </div >
     );
 }

@@ -47,9 +47,9 @@ const useFirebase = () => {
     */
     useEffect(() => {
         axios.get(`http://localhost:5000/users/role?email=${user.email}`)
-            .then(res => setRole(res.data.role))
+            .then(res => setRole(res?.data?.role))
     }, [user])
-
+    console.log(role)
     /* *
     * Register user with email and password
     */
@@ -77,9 +77,8 @@ const useFirebase = () => {
         const newUser = {
             displayName: user.displayName || name,
             email: user.email,
-            role: 'user'
         }
-        axios.post('http://localhost:5000/users', newUser)
+        axios.post(`http://localhost:5000/users`, newUser)
             .then(res => console.log(res.data))
     }
 

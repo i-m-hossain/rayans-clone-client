@@ -14,6 +14,7 @@ import DashboardContainer from './Dashboard/DashboardContainer/DashboardContaine
 import ManageProducts from './Dashboard/pages/ManageProducts/ManageProducts';
 import DashboardWelcome from './Dashboard/DashboardWelcome/DashboardWelcome';
 import MakeAdmin from './Dashboard/pages/MakeAdmin/MakeAdmin';
+import EditProduct from './Dashboard/pages/EditProduct/EditProduct';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
             >
               <Route path="welcome" element={<DashboardWelcome />} />
               <Route path="manageProducts" element={<ManageProducts />} />
+              <Route path="editProduct/:id" element={<EditProduct />} />
               <Route path="makeAdmin" element={<MakeAdmin />} />
 
             </Route>
