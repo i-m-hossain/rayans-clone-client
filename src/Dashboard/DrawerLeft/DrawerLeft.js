@@ -8,9 +8,14 @@ import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 import Toolbar from '@mui/material/Toolbar'
 import useAuth from '../../hooks/useAuth';
+import { useNavigate } from 'react-router-dom'
 const DrawerLeft = () => {
     const { user, role, logOut } = useAuth()
-    console.log(role)
+    const navigate = useNavigate()
+    const handleLogOut = () => {
+        logOut()
+        navigate('/login')
+    }
     return (
         <div >
             <Toolbar />
@@ -25,7 +30,7 @@ const DrawerLeft = () => {
                     </ListItem>
                 </Link>
                 {
-                    user.email && role === 'admin' && <>
+                    role === 'admin' && <>
                         <Link to="/dashboard/manageProducts">
                             <ListItem button >
                                 <ListItemIcon>
@@ -34,19 +39,19 @@ const DrawerLeft = () => {
                                 <ListItemText primary="Manage Products" />
                             </ListItem>
                         </Link>
-                        <Link to="/dashboard/makeAdmin">
+                        <Link to="/dashboard/manageUserRole">
                             <ListItem button >
                                 <ListItemIcon>
                                     <InboxIcon />
                                 </ListItemIcon>
-                                <ListItemText primary="Make Admin" />
+                                <ListItemText primary="Manage User Role" />
                             </ListItem>
                         </Link>
                     </>
 
                 }
 
-                <ListItem button onClick={logOut}>
+                <ListItem button onClick={() => handleLogOut()}>
                     <ListItemIcon>
                         <InboxIcon />
                     </ListItemIcon>

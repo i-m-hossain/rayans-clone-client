@@ -3,7 +3,7 @@ import { Navigate, useLocation } from 'react-router';
 import useAuth from '../hooks/useAuth';
 
 const PrivateRoute = ({ children }) => {
-    const { user, isLoading } = useAuth()
+    const { user, isLoading,  } = useAuth()
     console.log(isLoading)
     const location = useLocation()
     if (isLoading) {

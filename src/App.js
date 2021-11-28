@@ -5,7 +5,6 @@ import {
   Route
 } from "react-router-dom";
 import Home from './Pages/Home/Home/Home';
-import AddProduct from './Dashboard/pages/AddProduct/AddProduct';
 import SingleProduct from './Pages/SingleProduct/SingleProduct/SingleProduct';
 import Login from './Pages/Login/Login';
 import AuthProvider from './Context/AuthProvider';
@@ -13,8 +12,9 @@ import PrivateRoute from './PrivateRoute/PrivateRoute';
 import DashboardContainer from './Dashboard/DashboardContainer/DashboardContainer';
 import ManageProducts from './Dashboard/pages/ManageProducts/ManageProducts';
 import DashboardWelcome from './Dashboard/DashboardWelcome/DashboardWelcome';
-import MakeAdmin from './Dashboard/pages/MakeAdmin/MakeAdmin';
 import EditProduct from './Dashboard/pages/EditProduct/EditProduct';
+import ManageUserRole from './Dashboard/pages/ManageUserRole/ManageUserRole';
+import AdminRoute from './Pages/AdminRoute/AdminRoute';
 
 function App() {
   return (
@@ -32,9 +32,31 @@ function App() {
               }
             >
               <Route path="welcome" element={<DashboardWelcome />} />
-              <Route path="manageProducts" element={<ManageProducts />} />
-              <Route path="editProduct/:id" element={<EditProduct />} />
-              <Route path="makeAdmin" element={<MakeAdmin />} />
+              <Route
+                path="manageProducts"
+                element={
+                  <AdminRoute>
+                    <ManageProducts />
+                  </AdminRoute>}
+
+              />
+              <Route
+                path="editProduct/:id"
+                element={
+                  <AdminRoute>
+                    <EditProduct />
+                  </AdminRoute>
+                }
+              />
+              <Route
+                path="manageUserRole"
+                element={
+                  <AdminRoute>
+                    <ManageUserRole />
+                  </AdminRoute>
+
+                }
+              />
 
             </Route>
             <Route
