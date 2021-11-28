@@ -50,6 +50,7 @@ const Header = () => {
                             </NavDropdown>
                         }
                         <Nav.Link href="#action1" className="text-white">Cart</Nav.Link>
+                        <Nav.Link href="#action1" className="text-white">{user.displayName}</Nav.Link>
 
 
                     </Nav>

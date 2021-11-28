@@ -2,12 +2,10 @@ import React from 'react';
 import { Navigate, useLocation } from 'react-router';
 import useAuth from '../../hooks/useAuth';
 
-
 const AdminRoute = ({ children }) => {
     const { user, isLoading, role } = useAuth()
-    console.log(role)
     const location = useLocation()
-    if (isLoading) {
+    if (role !== 'admin') {
         return (
             <div className="spinner-border mt-5" role="status">
             </div>
