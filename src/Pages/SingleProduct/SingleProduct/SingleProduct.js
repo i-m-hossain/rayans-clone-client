@@ -6,7 +6,7 @@ const SingleProduct = () => {
     return (
         <>
             <Header></Header>
-            <ProductDetails></ProductDetails>
+            <ProductDetails ></ProductDetails>
             <Footer></Footer>
         </>
 

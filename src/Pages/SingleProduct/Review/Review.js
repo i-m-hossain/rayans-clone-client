@@ -3,7 +3,7 @@ import { Container, Form, Button } from 'react-bootstrap';
 
 const Review = () => {
     return (
-        <Container className="border border-1 rounded px-3 py-2" >
+        <Container className="border border-1 bg-light rounded px-3 py-2" >
             <h3 className="text-start">Review</h3>
             <Form >
                 <Form.Group className="mb-3" controlId="formGroupEmail">

@@ -32,13 +32,14 @@ const Header = () => {
                     <Nav
                         className="ms-auto my-2 pb-2 my-lg-0"
                     >
-                        <NavDropdown title="All Products" id="collasible-nav-dropdown">
+                        {/* <NavDropdown as={Link} to="/allProducts" title="All Products" id="collasible-nav-dropdown">
                             <NavDropdown.Item href="#action/3.1">Brands</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.2">Laptos</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.3">Monitor</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.3">Tablets</NavDropdown.Item>
 
-                        </NavDropdown>
+                        </NavDropdown> */}
+                        <Nav.Link as={Link} to="/explore" className="text-white">Explore</Nav.Link>
                         {
                             !user.email && <Nav.Link as={Link} to="/Login" className="text-white">Login</Nav.Link>
                         }
@@ -50,7 +51,6 @@ const Header = () => {
                             </NavDropdown>
                         }
                         <Nav.Link href="#action1" className="text-white">Cart</Nav.Link>
-                        <Nav.Link href="#action1" className="text-white">{user.displayName}</Nav.Link>
 
 
                     </Nav>

@@ -3,7 +3,7 @@ import { Card } from 'react-bootstrap';
 
 const ProductDescription = ({ product }) => {
     return (
-        <Card className="mb-2">
+        <Card className="mb-2 bg-light">
             <Card.Body>
                 <Card.Title>{product.title}</Card.Title>
                 <Card.Text>

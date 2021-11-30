@@ -18,7 +18,8 @@ const Product = ({ product }) => {
                     </Card.Text>
                 </Card.Body>
                 <Card.Footer style={{ backgroundColor: 'var(--bgSecondary)' }}>
-                    <big className="text-dark">Buy Now</big>
+                    <Link to={`/products/${product._id}`}><big className="text-dark">Buy Now</big></Link>
+
                 </Card.Footer>
             </Card>
         </Col>

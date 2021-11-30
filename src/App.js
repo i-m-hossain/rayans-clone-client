@@ -15,6 +15,8 @@ import DashboardWelcome from './Dashboard/DashboardWelcome/DashboardWelcome';
 import EditProduct from './Dashboard/pages/EditProduct/EditProduct';
 import ManageUserRole from './Dashboard/pages/ManageUserRole/ManageUserRole';
 import AdminRoute from './Pages/AdminRoute/AdminRoute';
+import Explore from './Pages/Explore/Explore';
+import PlaceOrder from './Pages/PlaceOrder/PlaceOrder';
 
 function App() {
   return (
@@ -62,6 +64,14 @@ function App() {
             <Route
               path="/products/:productId"
               element={<SingleProduct />}
+            />
+            <Route
+              path="/explore"
+              element={<Explore />}
+            />
+            <Route
+              path="/placeOrder/:productId"
+              element={<PlaceOrder />}
             />
             <Route path="/login" element={<Login />} />
             <Route
