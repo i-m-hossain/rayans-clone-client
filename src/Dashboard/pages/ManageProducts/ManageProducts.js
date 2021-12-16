@@ -5,13 +5,12 @@ import DashboardTable from '../Shared/DashboardTable';
 
 const ManageProducts = () => {
     const [isProductAdded, setIsProductAdded] = useState(false)
+
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => {
         setShow(true)
-
     };
-    console.log(show)
     return (
         <Container>
             <Row>
@@ -22,7 +21,6 @@ const ManageProducts = () => {
                     setIsProductAdded={setIsProductAdded}
                     handleClose={handleClose}
                     show={show} >
-
                 </AddProduct>
 
             </Row>

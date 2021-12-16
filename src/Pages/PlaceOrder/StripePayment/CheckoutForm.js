@@ -12,7 +12,7 @@ const CheckoutForm = ({ product }) => {
     const [processing, setProcessing] = useState(false);
     const [clientSecret, setClientSecret] = useState('');
     useEffect(() => {
-        fetch('http://localhost:5000/create-payment-intent', {
+        fetch('https://cryptic-cove-84874.herokuapp.com/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'applicatIon/json'
@@ -82,7 +82,7 @@ const CheckoutForm = ({ product }) => {
                 last4: paymentMethod.card.last4,
                 transaction: paymentIntent.client_secret.split('_secret')[0]
             }
-            const url = `http://localhost:5000/products/payment/${_id}`
+            const url = `https://cryptic-cove-84874.herokuapp.com/products/payment/${_id}`
             fetch(url, {
                 method: 'PUT',
                 headers: {

@@ -13,7 +13,7 @@ const AddUserRole = ({ setIsUserRoleUpdated, handleClose, show }) => {
             role: data.role
         }
         if (user.email !== data.email) {
-            axios.put(`http://localhost:5000/users?requester=${user?.email}`, newUser)
+            axios.put(`https://cryptic-cove-84874.herokuapp.com/users?requester=${user?.email}`, newUser)
                 .then(res => {
                     if (res.data.modifiedCount) {
                         setIsUserRoleUpdated(true)

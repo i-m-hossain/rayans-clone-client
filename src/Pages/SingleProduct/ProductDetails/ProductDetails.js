@@ -12,7 +12,7 @@ const ProductDetails = () => {
     const { productId } = useParams()
     const [product, setProduct] = useState([])
     useEffect(() => {
-        axios.get(`http://localhost:5000/products/${productId}`)
+        axios.get(`https://cryptic-cove-84874.herokuapp.com/products/${productId}`)
             .then(res => setProduct(res.data))
     }, [productId])
     return (

@@ -9,7 +9,7 @@ const EditProduct = () => {
     const { register, handleSubmit, reset } = useForm();
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/products/${id}`)
+        axios.get(`https://cryptic-cove-84874.herokuapp.com/products/${id}`)
             .then(res => setProduct(res.data))
     }, [id])
     const onSubmit = data => {
@@ -18,7 +18,7 @@ const EditProduct = () => {
         formData.append('short_des', data.short_des);
         formData.append('price', data.price);
         formData.append('image', data.image[0]);
-        axios.put(`http://localhost:5000/products/${id}`, formData)
+        axios.put(`https://cryptic-cove-84874.herokuapp.com/products/${id}`, formData)
             .then(res => {
                 if (res.data.modifiedCount) {
                     alert('product is updated successfully')

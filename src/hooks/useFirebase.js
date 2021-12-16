@@ -46,7 +46,7 @@ const useFirebase = () => {
     * observe user role
     */
     useEffect(() => {
-        axios.get(`http://localhost:5000/users/role?email=${user.email}`)
+        axios.get(`https://cryptic-cove-84874.herokuapp.com/users/role?email=${user.email}`)
             .then(res => setRole(res?.data?.role))
     }, [user])
     console.log(role)
@@ -78,7 +78,7 @@ const useFirebase = () => {
             displayName: user.displayName || name,
             email: user.email,
         }
-        axios.post(`http://localhost:5000/users`, newUser)
+        axios.post(`https://cryptic-cove-84874.herokuapp.com/users`, newUser)
             .then(res => console.log(res.data))
     }
 

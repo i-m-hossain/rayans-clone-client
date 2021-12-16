@@ -1,3 +1,4 @@
+import { Category } from "@mui/icons-material";
 import axios from "axios";
 import React from "react";
 import { Modal } from "react-bootstrap";
@@ -5,13 +6,14 @@ import { useForm } from "react-hook-form";
 
 export default function AddProduct({ setIsProductAdded, handleClose, show }) {
     const { register, handleSubmit, reset } = useForm();
+    // const 
     const onSubmit = data => {
         const formData = new FormData()
         formData.append('title', data.title);
         formData.append('short_des', data.short_des);
         formData.append('price', data.price);
         formData.append('image', data.image[0]);
-        axios.post('http://localhost:5000/products', formData)
+        axios.post('https://cryptic-cove-84874.herokuapp.com/products', formData)
             .then(res => {
                 if (res.data.insertedId) {
                     setIsProductAdded(true)
@@ -33,7 +35,6 @@ export default function AddProduct({ setIsProductAdded, handleClose, show }) {
                     <div>
                         <input {...register("title", { required: true })} className="mb-2 p-2 w-100" placeholder="title" />
                     </div>
-
                     <div>
                         <textarea {...register("short_des", { required: true })} name="short_des" className="w-100" id="" rows="5" placeholder="short description"></textarea>
                     </div>
@@ -41,6 +42,14 @@ export default function AddProduct({ setIsProductAdded, handleClose, show }) {
                     <div>
                         <input type="number" {...register("price", { required: true })} className="mb-2 p-2 w-100 " placeholder="product price" />
                     </div>
+                    {/* <div>
+                        <select {...register("category")}>
+                            {
+                                categories.map(cat =>
+                                    <option value={cat}>{cat}</option>)
+                            }
+                        </select>
+                    </div> */}
 
                     <div >
                         <input type="file" {...register("image")} className="form-control mb-2 p-2  mx-auto" id="inputGroupFile02" />

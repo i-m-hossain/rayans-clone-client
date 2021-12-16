@@ -3,13 +3,13 @@ import Footer from '../../Shared/Footer/Footer';
 import Header from '../../Shared/Header/Header';
 
 import ProductsCollection from '../ProductsCollection/ProductsCollection';
-import Slider from '../Slider/Slider';
+import CarouselSlider from '../Slider/CarouselSlider';
 
 const Home = () => {
     return (
         <div>
             <Header></Header>
-            <Slider></Slider>
+            <CarouselSlider></CarouselSlider>
             <ProductsCollection></ProductsCollection>
             <Footer></Footer>
         </div>

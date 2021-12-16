@@ -15,8 +15,14 @@ import DashboardWelcome from './Dashboard/DashboardWelcome/DashboardWelcome';
 import EditProduct from './Dashboard/pages/EditProduct/EditProduct';
 import ManageUserRole from './Dashboard/pages/ManageUserRole/ManageUserRole';
 import AdminRoute from './Pages/AdminRoute/AdminRoute';
-import Explore from './Pages/Explore/Explore';
 import PlaceOrder from './Pages/PlaceOrder/PlaceOrder';
+import Laptop from './Pages/Explore/Laptop/Laptop';
+import Tablet from './Pages/Explore/Tablet/Tablet';
+import Monitor from './Pages/Explore/Monitor/Monitor';
+import AllProducts from './Pages/Explore/AllProducts/AllProducts';
+import Explore from './Pages/Explore/Explore';
+import ManageCategory from './Dashboard/pages/ManageCategory/ManageCategory';
+import EditCategory from './Dashboard/pages/EditCategory/EditCategory';
 
 function App() {
   return (
@@ -25,8 +31,7 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route
-              path="/dashboard"
+            <Route path="/dashboard"
               element={
                 <PrivateRoute>
                   <DashboardContainer />
@@ -51,6 +56,23 @@ function App() {
                 }
               />
               <Route
+                path="manageCategory"
+                element={
+                  <AdminRoute>
+                    <ManageCategory />
+                  </AdminRoute>
+
+                }
+              />
+              <Route
+                path="editCategory/:id"
+                element={
+                  <AdminRoute>
+                    <EditCategory />
+                  </AdminRoute>
+                }
+              />
+              <Route
                 path="manageUserRole"
                 element={
                   <AdminRoute>
@@ -65,10 +87,12 @@ function App() {
               path="/products/:productId"
               element={<SingleProduct />}
             />
-            <Route
-              path="/explore"
-              element={<Explore />}
-            />
+            <Route path="/explore" element={<Explore />} >
+              <Route index element={<AllProducts />} />
+              <Route path="laptops" element={<Laptop />} />
+              <Route path="tablets" element={<Tablet />} />
+              <Route path="monitors" element={<Monitor />} />
+            </Route>
             <Route
               path="/placeOrder/:productId"
               element={<PlaceOrder />}

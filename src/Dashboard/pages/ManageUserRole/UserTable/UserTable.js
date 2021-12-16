@@ -14,7 +14,7 @@ const UserTable = ({ handleShow, isUserRoleUpdated }) => {
         if (user.email !== email) {
             const confirm = window.confirm('Are you sure want to delete')
             if (confirm) {
-                axios.delete(`http://localhost:5000/users/${id}`)
+                axios.delete(`https://cryptic-cove-84874.herokuapp.com/users/${id}`)
                     .then(res => {
                         if (res.data.deletedCount > 0) {
                             const remainingUsers = users.filter(item => item._id !== id)

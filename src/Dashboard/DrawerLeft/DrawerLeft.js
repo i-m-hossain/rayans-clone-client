@@ -9,6 +9,10 @@ import Divider from '@mui/material/Divider';
 import Toolbar from '@mui/material/Toolbar'
 import useAuth from '../../hooks/useAuth';
 import { useNavigate } from 'react-router-dom'
+import { AiFillHome } from 'react-icons/ai'
+import { AiOutlineUserAdd } from 'react-icons/ai'
+import { AiFillProject } from 'react-icons/ai'
+import { AiOutlineLogout } from 'react-icons/ai'
 const DrawerLeft = () => {
     const { user, role, logOut } = useAuth()
     const navigate = useNavigate()
@@ -24,7 +28,7 @@ const DrawerLeft = () => {
                 <Link to="/">
                     <ListItem button >
                         <ListItemIcon>
-                            <InboxIcon />
+                            <AiFillHome />
                         </ListItemIcon>
                         <ListItemText primary="Home" />
                     </ListItem>
@@ -34,7 +38,7 @@ const DrawerLeft = () => {
                         <Link to="/dashboard/manageProducts">
                             <ListItem button >
                                 <ListItemIcon>
-                                    <InboxIcon />
+                                    <AiFillProject />
                                 </ListItemIcon>
                                 <ListItemText primary="Manage Products" />
                             </ListItem>
@@ -42,9 +46,17 @@ const DrawerLeft = () => {
                         <Link to="/dashboard/manageUserRole">
                             <ListItem button >
                                 <ListItemIcon>
-                                    <InboxIcon />
+                                    <AiOutlineUserAdd />
                                 </ListItemIcon>
                                 <ListItemText primary="Manage User Role" />
+                            </ListItem>
+                        </Link>
+                        <Link to="/dashboard/manageCategory">
+                            <ListItem button >
+                                <ListItemIcon>
+                                    <AiOutlineUserAdd />
+                                </ListItemIcon>
+                                <ListItemText primary="Manage Category" />
                             </ListItem>
                         </Link>
                     </>
@@ -53,7 +65,7 @@ const DrawerLeft = () => {
 
                 <ListItem button onClick={() => handleLogOut()}>
                     <ListItemIcon>
-                        <InboxIcon />
+                        <AiOutlineLogout />
                     </ListItemIcon>
                     <ListItemText primary="Logout" />
                 </ListItem>
