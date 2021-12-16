@@ -1,9 +1,17 @@
 import React from 'react';
+import useCategoryProducts from '../../../hooks/useCategoryProducts';
+import useProducts from '../../../hooks/useProducts';
+import CategorizedProducts from '../../Shared/CategorizedProducts/CategorizedProducts';
 
 const Laptop = () => {
+    const { products } = useCategoryProducts('laptop')
     return (
         <div>
-            laptop will be here
+            <CategorizedProducts
+                products={products}
+            >
+                Laptop
+            </CategorizedProducts>
         </div>
     );
 };

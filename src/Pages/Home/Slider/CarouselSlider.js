@@ -1,6 +1,9 @@
 import React from 'react';
 import { Carousel, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import slider1 from '../../../assignment13-asset/slider/16december.jpg'
+import slider2 from '../../../assignment13-asset/slider/Asus.jpg'
+import slider3 from '../../../assignment13-asset/slider/Barishalhome.jpg'
 const CarouselSlider = () => {
     return (
         <Container className="py-3  w-100">
@@ -10,10 +13,21 @@ const CarouselSlider = () => {
                         <Link to="">
                             <img src="https://i.ibb.co/7bLMsxK/Asus-PRIME-Z690-M-PLUS-web-1635916225.jpg" alt="" style={{ display: "block", width: "100%" }} />
                         </Link>
-                        <Carousel.Caption>
-                            {/* <h3>First slide label</h3>
-                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> */}
-                        </Carousel.Caption>
+                    </Carousel.Item>
+                    <Carousel.Item as={Link} to="" interval={5000}>
+                        <Link to="">
+                            <img src={slider1} alt="" style={{ display: "block", width: "100%" }} />
+                        </Link>
+                    </Carousel.Item>
+                    <Carousel.Item as={Link} to="" interval={5000}>
+                        <Link to="">
+                            <img src={slider2} alt="" style={{ display: "block", width: "100%" }} />
+                        </Link>
+                    </Carousel.Item>
+                    <Carousel.Item as={Link} to="" interval={5000}>
+                        <Link to="">
+                            <img src={slider3} alt="" style={{ display: "block", width: "100%" }} />
+                        </Link>
                     </Carousel.Item>
 
                 </Carousel>

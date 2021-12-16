@@ -1,4 +1,3 @@
-import { Category } from "@mui/icons-material";
 import axios from "axios";
 import React from "react";
 import { Modal } from "react-bootstrap";
@@ -8,11 +7,13 @@ import useCategories from "../../../hooks/useCategories";
 export default function AddProduct({ isProductAdded, setIsProductAdded, handleClose, show }) {
     const { register, handleSubmit, reset } = useForm();
     const { categories } = useCategories()
+    console.log(categories)
     const onSubmit = data => {
         const formData = new FormData()
         formData.append('title', data.title);
         formData.append('short_des', data.short_des);
         formData.append('price', data.price);
+        formData.append('category', data.category);
         formData.append('image', data.image[0]);
         axios.post('https://cryptic-cove-84874.herokuapp.com/products', formData)
             .then(res => {
@@ -43,14 +44,14 @@ export default function AddProduct({ isProductAdded, setIsProductAdded, handleCl
                     <div>
                         <input type="number" {...register("price", { required: true })} className="mb-2 p-2 w-100 " placeholder="product price" />
                     </div>
-                    {/* <div>
-                        <select {...register("category")}>
+                    <div>
+                        <select {...register("category")} className="mb-2 p-2 w-100 ">
                             {
                                 categories.map(cat =>
-                                    <option value={cat}>{cat}</option>)
+                                    <option key={cat._id} value={cat.cat_name}>{cat.cat_name}</option>)
                             }
                         </select>
-                    </div> */}
+                    </div>
 
                     <div >
                         <input type="file" {...register("image")} className="form-control mb-2 p-2  mx-auto" id="inputGroupFile02" />
