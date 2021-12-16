@@ -1,11 +1,18 @@
 import React from 'react';
+import useCategoryProducts from '../../../hooks/useCategoryProducts';
+import CategorizedProducts from '../../Shared/CategorizedProducts/CategorizedProducts';
 
-const Tablet = () => {
+const Laptop = () => {
+    const { products } = useCategoryProducts('tablet')
     return (
         <div>
-            Tablets will be here
+            <CategorizedProducts
+                products={products}
+            >
+                Tablet
+            </CategorizedProducts>
         </div>
     );
 };
 
-export default Tablet;
+export default Laptop;

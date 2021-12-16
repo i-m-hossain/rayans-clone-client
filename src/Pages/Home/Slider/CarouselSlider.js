@@ -8,8 +8,8 @@ const CarouselSlider = () => {
     return (
         <Container className="py-3  w-100">
             <div className="d-flex justify-content-between align-items-center">
-                <Carousel>
-                    <Carousel.Item as={Link} to="" interval={5000}>
+                <Carousel className="overflow-hidden">
+                    <Carousel.Item as={Link} to="" interval={1000}>
                         <Link to="">
                             <img src="https://i.ibb.co/7bLMsxK/Asus-PRIME-Z690-M-PLUS-web-1635916225.jpg" alt="" style={{ display: "block", width: "100%" }} />
                         </Link>
