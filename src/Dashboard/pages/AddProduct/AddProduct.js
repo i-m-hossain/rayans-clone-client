@@ -3,10 +3,11 @@ import axios from "axios";
 import React from "react";
 import { Modal } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import useCategories from "../../../hooks/useCategories";
 
-export default function AddProduct({ setIsProductAdded, handleClose, show }) {
+export default function AddProduct({ isProductAdded, setIsProductAdded, handleClose, show }) {
     const { register, handleSubmit, reset } = useForm();
-    // const 
+    const { categories } = useCategories()
     const onSubmit = data => {
         const formData = new FormData()
         formData.append('title', data.title);
@@ -16,7 +17,7 @@ export default function AddProduct({ setIsProductAdded, handleClose, show }) {
         axios.post('https://cryptic-cove-84874.herokuapp.com/products', formData)
             .then(res => {
                 if (res.data.insertedId) {
-                    setIsProductAdded(true)
+                    setIsProductAdded(!isProductAdded)
                     reset()
                     alert('product is successfully added')
                     handleClose(true)

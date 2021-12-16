@@ -18,6 +18,7 @@ const ManageProducts = () => {
                     <DashboardTable isProductAdded={isProductAdded} handleShow={handleShow}></DashboardTable>
                 </Col>
                 <AddProduct
+                    isProductAdded={isProductAdded}
                     setIsProductAdded={setIsProductAdded}
                     handleClose={handleClose}
                     show={show} >

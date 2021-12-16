@@ -4,14 +4,14 @@ import React from "react";
 import { Modal } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 
-export default function AddCategory({ setIsCategoryAdded, handleClose, show }) {
+export default function AddCategory({ isCategoryAdded, setIsCategoryAdded, handleClose, show }) {
     const { register, handleSubmit, reset } = useForm();
     // const 
     const onSubmit = data => {
         axios.post('http://localhost:5000/categories', data)
             .then(res => {
                 if (res.data.insertedId) {
-                    setIsCategoryAdded(true)
+                    setIsCategoryAdded(!isCategoryAdded)
                     reset()
                     alert('product is successfully added')
                     handleClose(true)

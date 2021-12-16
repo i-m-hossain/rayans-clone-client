@@ -75,6 +75,7 @@ export default function ManageCategory() {
                 </Card.Body>
             </Card>
             <AddCategory
+                isCategoryAdded={isCategoryAdded}
                 setIsCategoryAdded={setIsCategoryAdded}
                 handleClose={handleClose}
                 show={show}
