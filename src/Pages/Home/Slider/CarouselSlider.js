@@ -6,9 +6,9 @@ import slider2 from '../../../assignment13-asset/slider/Asus.jpg'
 import slider3 from '../../../assignment13-asset/slider/Barishalhome.jpg'
 const CarouselSlider = () => {
     return (
-        <Container className="py-3  w-100">
-            <div className="d-flex justify-content-between align-items-center">
-                <div className="h-fixed w-100 w-md-75">
+        <Container className="py-3 w-100">
+            <div className="d-flex justify-content-center align-items-center">
+                <div className="h-fixed w-100">
                     <Carousel >
                         <Carousel.Item as={Link} className="overflow-hidden"
                             to="" interval={2000}>
@@ -44,13 +44,15 @@ const CarouselSlider = () => {
                 <div div className="d-flex flex-column d-none d-md-block" >
                     <div className="pb-3">
                         <Link to="">
-                            <img src="https://i.ibb.co/sPLwvbc/Sony-DSC-W800-right-1637389358.jpg" alt="" style={{ display: "block", width: "100%" }} />
+                            <img src="https://i.ibb.co/sPLwvbc/Sony-DSC-W800-right-1637389358.jpg" alt=""
+                                className='h-100'
+                            />
                         </Link>
                     </div>
 
                     <div>
                         <Link to="">
-                            <img src="https://i.ibb.co/y5pmznD/Sandisk-1-TB-Extreme-V2-right-sider-1637389483.jpg" alt="" style={{ display: "block", width: "100%" }} />
+                            <img src="https://i.ibb.co/y5pmznD/Sandisk-1-TB-Extreme-V2-right-sider-1637389483.jpg" alt="" />
                         </Link>
 
                     </div>
