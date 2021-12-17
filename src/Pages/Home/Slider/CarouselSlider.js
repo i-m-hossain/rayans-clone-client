@@ -8,29 +8,39 @@ const CarouselSlider = () => {
     return (
         <Container className="py-3  w-100">
             <div className="d-flex justify-content-between align-items-center">
-                <Carousel className="overflow-hidden">
-                    <Carousel.Item as={Link} to="" interval={1000}>
-                        <Link to="">
-                            <img src="https://i.ibb.co/7bLMsxK/Asus-PRIME-Z690-M-PLUS-web-1635916225.jpg" alt="" style={{ display: "block", width: "100%" }} />
-                        </Link>
-                    </Carousel.Item>
-                    <Carousel.Item as={Link} to="" interval={5000}>
-                        <Link to="">
-                            <img src={slider1} alt="" style={{ display: "block", width: "100%" }} />
-                        </Link>
-                    </Carousel.Item>
-                    <Carousel.Item as={Link} to="" interval={5000}>
-                        <Link to="">
-                            <img src={slider2} alt="" style={{ display: "block", width: "100%" }} />
-                        </Link>
-                    </Carousel.Item>
-                    <Carousel.Item as={Link} to="" interval={5000}>
-                        <Link to="">
-                            <img src={slider3} alt="" style={{ display: "block", width: "100%" }} />
-                        </Link>
-                    </Carousel.Item>
+                <div className="h-fixed w-100 w-md-75">
+                    <Carousel >
+                        <Carousel.Item as={Link} className="overflow-hidden"
+                            to="" interval={2000}>
+                            <Link to="">
+                                <img src="https://i.ibb.co/7bLMsxK/Asus-PRIME-Z690-M-PLUS-web-1635916225.jpg" alt="" />
+                            </Link>
+                        </Carousel.Item>
+                        <Carousel.Item as={Link} to="" interval={2000}
+                            className="overflow-hidden"
+                        >
+                            <Link to="">
+                                <img src={slider1} alt="" />
+                            </Link>
+                        </Carousel.Item>
+                        <Carousel.Item as={Link} to="" interval={2000}
+                            className="overflow-hidden"
+                        >
+                            <Link to="">
+                                <img src={slider2} alt="" />
+                            </Link>
+                        </Carousel.Item>
+                        <Carousel.Item as={Link} to="" interval={2000}
+                            className="overflow-hidden"
+                        >
+                            <Link to="">
+                                <img src={slider3} alt="" />
+                            </Link>
+                        </Carousel.Item>
 
-                </Carousel>
+                    </Carousel>
+                </div>
+
                 <div div className="d-flex flex-column d-none d-md-block" >
                     <div className="pb-3">
                         <Link to="">

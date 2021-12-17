@@ -23,6 +23,7 @@ import AllProducts from './Pages/Explore/AllProducts/AllProducts';
 import Explore from './Pages/Explore/Explore';
 import ManageCategory from './Dashboard/pages/ManageCategory/ManageCategory';
 import EditCategory from './Dashboard/pages/EditCategory/EditCategory';
+import SearchResult from './Pages/SearchResult/SearchResult';
 
 function App() {
   return (
@@ -89,13 +90,17 @@ function App() {
             />
             <Route path="/explore" element={<Explore />} >
               <Route index element={<AllProducts />} />
-              <Route path="laptops" element={<Laptop />} />
-              <Route path="tablets" element={<Tablet />} />
+              <Route path="laptop" element={<Laptop />} />
+              <Route path="tablet" element={<Tablet />} />
               <Route path="monitors" element={<Monitor />} />
             </Route>
             <Route
               path="/placeOrder/:productId"
               element={<PlaceOrder />}
+            />
+            <Route
+              path="/searchResult"
+              element={<SearchResult />}
             />
             <Route path="/login" element={<Login />} />
             <Route

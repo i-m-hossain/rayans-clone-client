@@ -1,6 +1,5 @@
 import React from 'react';
 import { Container, Row, Spinner } from 'react-bootstrap';
-import useProducts from '../../../hooks/useProducts';
 import Product from '../../Home/ProductsCollection/Product/Product'
 
 const CategorizedProducts = (props) => {
@@ -19,9 +18,9 @@ const CategorizedProducts = (props) => {
                             }
                         </Row>
                         :
-                        <Spinner animation="border" role="status" variant="danger">
-                            <span className="visually-hidden">Loading...</span>
-                        </Spinner>
+                        <h4>
+                            Not found
+                        </h4>
 
                 }
 
