@@ -3,29 +3,15 @@ import React, { useEffect, useState } from 'react';
 import { Button, Table } from 'react-bootstrap';
 import useAuth from '../../../hooks/useAuth';
 
-const ManageOrders = () => {
+const UserOrder = () => {
     const { user } = useAuth()
     const [orders, setOrders] = useState([])
-    const [isStatusModified, setIsStatusModified] = useState(false)
-
     useEffect(() => {
-        fetch(`http://localhost:5000/orders`)
+        fetch(`http://localhost:5000/usersOrders/${user.email}`)
             .then(res => res.json())
-            .then(data => {
-                setOrders(data)
-            })
+            .then(data => setOrders(data))
 
-
-    }, [user, isStatusModified])
-    const handleOrderStatus = (id, status) => {
-
-        axios.put(`http://localhost:5000/orders/${id}`, { status: status === 'shipped' ? 'pending' : 'shipped' })
-            .then(res => {
-                if (res.data.modifiedCount > 0) {
-                    setIsStatusModified(!isStatusModified)
-                }
-            })
-    }
+    }, [user])
     const handleCancelOrder = (id) => {
         const confirm = window.confirm("Are you sure want to cancel the order?")
         if (confirm) {
@@ -58,18 +44,7 @@ const ManageOrders = () => {
                         <td>{index + 1}</td>
                         <td>{item.product_title}</td>
                         <td>${item.product_price}</td>
-                        <td>
-                            <Button
-                                title="click me to change status"
-                                onClick={() => handleOrderStatus(item._id, item.status)} >
-
-                                {
-                                    (item.status ? item.status : 'pending')
-
-                                }
-
-                            </Button>
-                        </td>
+                        <td>{item.status ? item.status : 'pending'}</td>
                         <td>
                             <Button
                                 onClick={() => handleCancelOrder(item._id)}
@@ -86,4 +61,4 @@ const ManageOrders = () => {
     );
 };
 
-export default ManageOrders;
+export default UserOrder;

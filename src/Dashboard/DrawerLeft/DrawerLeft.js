@@ -59,8 +59,27 @@ const DrawerLeft = () => {
                                 <ListItemText primary="Manage Category" />
                             </ListItem>
                         </Link>
+                        <Link to="/dashboard/manageOrders">
+                            <ListItem button >
+                                <ListItemIcon>
+                                    <AiOutlineUserAdd />
+                                </ListItemIcon>
+                                <ListItemText primary="Manage Orders" />
+                            </ListItem>
+                        </Link>
                     </>
-
+                }
+                {
+                    role === 'user' && <>
+                        <Link to="/dashboard/userOrder">
+                            <ListItem button >
+                                <ListItemIcon>
+                                    <AiFillProject />
+                                </ListItemIcon>
+                                <ListItemText primary="Ordered products" />
+                            </ListItem>
+                        </Link>
+                    </>
                 }
 
                 <ListItem button onClick={() => handleLogOut()}>

@@ -24,6 +24,8 @@ import Explore from './Pages/Explore/Explore';
 import ManageCategory from './Dashboard/pages/ManageCategory/ManageCategory';
 import EditCategory from './Dashboard/pages/EditCategory/EditCategory';
 import SearchResult from './Pages/SearchResult/SearchResult';
+import UserOrder from './Dashboard/pages/UserOrder/UserOrder';
+import ManageOrders from './Dashboard/pages/ManageOrders/ManageOrders';
 
 function App() {
   return (
@@ -40,6 +42,8 @@ function App() {
               }
             >
               <Route path="welcome" element={<DashboardWelcome />} />
+              <Route path="userOrder" element={<UserOrder />} />
+
               <Route
                 path="manageProducts"
                 element={
@@ -82,6 +86,15 @@ function App() {
 
                 }
               />
+              <Route
+                path="manageOrders"
+                element={
+                  <AdminRoute>
+                    <ManageOrders />
+                  </AdminRoute>
+
+                }
+              />
 
             </Route>
             <Route
@@ -96,7 +109,9 @@ function App() {
             </Route>
             <Route
               path="/placeOrder/:productId"
-              element={<PlaceOrder />}
+              element={<PrivateRoute>
+                <PlaceOrder />
+              </PrivateRoute>}
             />
             <Route
               path="/searchResult"

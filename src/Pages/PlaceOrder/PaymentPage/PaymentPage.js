@@ -20,6 +20,7 @@ const PaymentPage = () => {
                 <Col md={12}>
                     <h2>Please Pay for: {product.title} </h2>
                     <h4>Pay: ${product.price}</h4>
+                    <p className='text-muted'> test card: 4242 4242 4242 4242   04/25 24242</p>
                     {
                         product.price && <Elements stripe={stripePromise}>
                             <CheckoutForm product={product}></CheckoutForm>

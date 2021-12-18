@@ -76,19 +76,25 @@ const CheckoutForm = ({ product }) => {
 
             //save to database
             console.log(paymentIntent.client_secret)
-            const payment = {
-                amount: paymentIntent.amount,
-                created: paymentIntent.created,
-                last4: paymentMethod.card.last4,
-                transaction: paymentIntent.client_secret.split('_secret')[0]
+            const order = {
+                product_id: _id,
+                product_title: title,
+                product_price: price,
+                user: user.email,
+                payment: {
+                    amount: paymentIntent.amount,
+                    created: paymentIntent.created,
+                    last4: paymentMethod.card.last4,
+                    transaction: paymentIntent.client_secret.split('_secret')[0]
+                }
             }
-            const url = `https://cryptic-cove-84874.herokuapp.com/products/payment/${_id}`
+            const url = `http://localhost:5000/ordersWithPayment`
             fetch(url, {
-                method: 'PUT',
+                method: 'POST',
                 headers: {
                     'content-type': 'application/json'
                 },
-                body: JSON.stringify(payment)
+                body: JSON.stringify(order)
             })
                 .then(res => res.json())
                 .then(data => console.log(data))
