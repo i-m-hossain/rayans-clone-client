@@ -9,7 +9,7 @@ const ManageOrders = () => {
     const [isStatusModified, setIsStatusModified] = useState(false)
 
     useEffect(() => {
-        fetch(`http://localhost:5000/orders`)
+        fetch(` https://cryptic-cove-84874.herokuapp.com/orders`)
             .then(res => res.json())
             .then(data => {
                 setOrders(data)
@@ -19,7 +19,7 @@ const ManageOrders = () => {
     }, [user, isStatusModified])
     const handleOrderStatus = (id, status) => {
 
-        axios.put(`http://localhost:5000/orders/${id}`, { status: status === 'shipped' ? 'pending' : 'shipped' })
+        axios.put(` https://cryptic-cove-84874.herokuapp.com/orders/${id}`, { status: status === 'shipped' ? 'pending' : 'shipped' })
             .then(res => {
                 if (res.data.modifiedCount > 0) {
                     setIsStatusModified(!isStatusModified)
@@ -29,7 +29,7 @@ const ManageOrders = () => {
     const handleCancelOrder = (id) => {
         const confirm = window.confirm("Are you sure want to cancel the order?")
         if (confirm) {
-            axios.delete(`http://localhost:5000/orders/${id}`)
+            axios.delete(` https://cryptic-cove-84874.herokuapp.com/orders/${id}`)
                 .then(res => {
                     if (res.data.deletedCount > 0) {
                         const restOrders = orders.filter(item => item._id !== id)

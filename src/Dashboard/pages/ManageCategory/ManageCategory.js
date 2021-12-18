@@ -17,7 +17,7 @@ export default function ManageCategory() {
     const handleDelete = (id) => {
         const confirm = window.confirm('are you sure want to delete?')
         if (confirm) {
-            axios.delete(`http://localhost:5000/categories/${id}`)
+            axios.delete(` https://cryptic-cove-84874.herokuapp.com/categories/${id}`)
                 .then(res => {
                     if (res.data.deletedCount > 0) {
                         const restProducts = categories.filter(cat => cat._id !== id);

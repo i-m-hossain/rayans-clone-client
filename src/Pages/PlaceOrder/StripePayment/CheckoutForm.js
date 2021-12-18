@@ -88,7 +88,7 @@ const CheckoutForm = ({ product }) => {
                     transaction: paymentIntent.client_secret.split('_secret')[0]
                 }
             }
-            const url = `http://localhost:5000/ordersWithPayment`
+            const url = ` https://cryptic-cove-84874.herokuapp.com/ordersWithPayment`
             fetch(url, {
                 method: 'POST',
                 headers: {

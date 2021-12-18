@@ -8,7 +8,7 @@ export default function AddCategory({ isCategoryAdded, setIsCategoryAdded, handl
     const { register, handleSubmit, reset } = useForm();
     // const 
     const onSubmit = data => {
-        axios.post('http://localhost:5000/categories', data)
+        axios.post(' https://cryptic-cove-84874.herokuapp.com/categories', data)
             .then(res => {
                 if (res.data.insertedId) {
                     setIsCategoryAdded(!isCategoryAdded)

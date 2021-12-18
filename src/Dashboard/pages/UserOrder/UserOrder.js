@@ -7,7 +7,7 @@ const UserOrder = () => {
     const { user } = useAuth()
     const [orders, setOrders] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:5000/usersOrders/${user.email}`)
+        fetch(` https://cryptic-cove-84874.herokuapp.com/usersOrders/${user.email}`)
             .then(res => res.json())
             .then(data => setOrders(data))
 
@@ -15,7 +15,7 @@ const UserOrder = () => {
     const handleCancelOrder = (id) => {
         const confirm = window.confirm("Are you sure want to cancel the order?")
         if (confirm) {
-            axios.delete(`http://localhost:5000/orders/${id}`)
+            axios.delete(` https://cryptic-cove-84874.herokuapp.com/orders/${id}`)
                 .then(res => {
                     if (res.data.deletedCount > 0) {
                         const restOrders = orders.filter(item => item._id !== id)

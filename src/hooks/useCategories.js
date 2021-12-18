@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 const useCategories = (isCategoryAdded = false) => {
     const [categories, setCategories] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/categories')
+        fetch(' https://cryptic-cove-84874.herokuapp.com/categories')
             .then(res => res.json())
             .then(data => setCategories(data))
     }, [isCategoryAdded])

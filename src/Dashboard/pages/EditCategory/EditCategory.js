@@ -8,7 +8,7 @@ export default function EditCategory() {
     const { id } = useParams()
     const { register, handleSubmit, reset } = useForm();
     useEffect(() => {
-        fetch(`http://localhost:5000/categories/${id}`)
+        fetch(` https://cryptic-cove-84874.herokuapp.com/categories/${id}`)
             .then(res => res.json())
             .then(data => setCategory(data))
     }, [])
@@ -16,7 +16,7 @@ export default function EditCategory() {
     // const 
     const onSubmit = data => {
 
-        axios.put(`http://localhost:5000/categories/${id}`, data)
+        axios.put(` https://cryptic-cove-84874.herokuapp.com/categories/${id}`, data)
             .then(res => {
                 if (res.data.modifiedCount) {
                     alert('product is updated successfully')
